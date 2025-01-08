@@ -1,0 +1,17 @@
+.loginblock{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    }
+.loginblock:hover{
+        background-color: #0056b3;
+    }
+.loginblock:active{
+        background-color: #003b8d;
+
+}
