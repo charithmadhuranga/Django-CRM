@@ -30,13 +30,27 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "django" },
+    { name = "django-daisy" },
     { name = "psycopg2-binary" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "django", specifier = ">=5.1.4" },
+    { name = "django-daisy", specifier = ">=1.0.8" },
     { name = "psycopg2-binary", specifier = ">=2.9.10" },
+]
+
+[[package]]
+name = "django-daisy"
+version = "1.0.8"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "django" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/65/93/888119d4be9ba6d82042bfef78ce6acbcea65d2ac3cd636a3db552bde332/django_daisy-1.0.8.tar.gz", hash = "sha256:a86d897fb631b0fa21b7c8f5b16a1019b0fb7cef3a0c48aa80fda1f21d2c0dbb", size = 8876676 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/8e/5d/7dd7bd7123541f13b1874554aa8bdfb842a651d0a63dd199e551c332f047/django_daisy-1.0.8-py3-none-any.whl", hash = "sha256:2e587204785fd9805ead1393a1cd2ec7acbbdc3d0c57679ad2d0b2f3f2346f56", size = 8755209 },
 ]
 
 [[package]]

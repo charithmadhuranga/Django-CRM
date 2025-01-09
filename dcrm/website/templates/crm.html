@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+{% if user.is_authenticated %}
+	<li class="loginblock"><a  href="{% url 'logout' %}">Logout</a></li>
+	{% for message in messages %}
+				<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+	{% endfor %}
+{% endif %}
+
+
+
+
+<footer class="fixed-bottom">
+		<div class="container">
+
+			<div class="copyright">Copyright &copy; 2024 | All Rights Reserved</div>
+
+			<div class="social">
+				<a href="#"><i class="fa-brands fa-facebook"></i></a>
+				<a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+				<a href="#"><i class="fa-brands fa-instagram"></i></a>
+			</div>
+
+		</div>
+</footer>
+{% endblock %}

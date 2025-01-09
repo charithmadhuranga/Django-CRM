@@ -1,29 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Devour - Business Website Template</title>
-	<link rel="icon" type="image/png" href="../static/images/favicon.png">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="../static/fonts/fa/css/all.css">
-	<link rel="stylesheet" href="../static/style-global.css">
-	<link rel="stylesheet" href="../static/style.css">
-	<link rel="stylesheet" href="../static/style-responsive.css">
-	<link rel="stylesheet" href="../static/custom-mine.css">
-	<script src="../static/js/jquery.js"></script>
-	<script src="../static/js/scripts.js"></script>
-	<script src="../static/form/contactform.js"></script>
-</head>
-<body id="home">
+{% extends 'base.html' %}
 
-
+{% block content %}
 
 	<header>
 		<div class="container flex-sb-aic">
-			
+
 			<a href="#" class="logo">
 				<img src="../static/images/logo-white.png" alt="">
 			</a>
@@ -38,8 +19,14 @@
 						<li><a href="#services">Services</a></li>
 						<li><a href="#projects">Projects</a></li>
 						<li><a href="#contact">Contact</a></li>
-						<li class="loginblock"><a  href="">Login</a></li>
+						{% if user.is_authenticated %}
+						<li class="loginblock"><a  href="{% url 'logout' %}">Logout</a></li>
+						{% endif %}
+						{% if not user.is_authenticated %}
+						<li class="loginblock"><a  href="{% url 'login' %}">Login</a></li>
 						<li class="loginblock"><a  href="">Signup</a></li>
+						{% endif %}
+
 					</ul>
 
 
@@ -71,7 +58,7 @@
 
 
 			<div class="text">
-				<h1>Business for Every Entrepreneur</h1>
+				<h1>CRM System for Every Entrepreneur</h1>
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque facilisis ultrices turpis, sit amet aliquam orci condimentum nec. Praesent vitae accumsan ipsum
 				</p>
@@ -91,16 +78,16 @@
 
 	<section class="about" id="about">
 		<div class="container">
-			
+
 
 			<div class="text flex-sb">
 				<h2>About Us</h2>
 				<div class="para">
 					<p>
-						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 					</p>
 					<p>
-						It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+						It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
 					</p>
 				</div>
 			</div>
@@ -123,10 +110,10 @@
 
 	<section class="services" id="services">
 		<div class="container">
-			
+
 
 			<h2>Services</h2>
-			
+
 
 			<div class="services-items flex-sb">
 
@@ -134,7 +121,7 @@
 					<i class="fa-solid fa-city"></i>
 					<h3>Business</h3>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus suscipit nisl, accumsan laoreet massa eleifend sit amet. 
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus suscipit nisl, accumsan laoreet massa eleifend sit amet.
 					</p>
 				</div>
 
@@ -142,7 +129,7 @@
 					<i class="fa-solid fa-hand-holding-dollar"></i>
 					<h3>Finance</h3>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus suscipit nisl, accumsan laoreet massa eleifend sit amet. 
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus suscipit nisl, accumsan laoreet massa eleifend sit amet.
 					</p>
 				</div>
 
@@ -150,7 +137,7 @@
 					<i class="fa-solid fa-bullhorn"></i>
 					<h3>Marketing</h3>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus suscipit nisl, accumsan laoreet massa eleifend sit amet. 
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus suscipit nisl, accumsan laoreet massa eleifend sit amet.
 					</p>
 				</div>
 
@@ -159,7 +146,7 @@
 					<i class="fa-solid fa-comments"></i>
 					<h3>Consultancy</h3>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus suscipit nisl, accumsan laoreet massa eleifend sit amet. 
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus suscipit nisl, accumsan laoreet massa eleifend sit amet.
 					</p>
 				</div>
 
@@ -167,7 +154,7 @@
 					<i class="fa-solid fa-people-group"></i>
 					<h3>Human Resource</h3>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus suscipit nisl, accumsan laoreet massa eleifend sit amet. 
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus suscipit nisl, accumsan laoreet massa eleifend sit amet.
 					</p>
 				</div>
 
@@ -175,7 +162,7 @@
 					<i class="fa-solid fa-recycle"></i>
 					<h3>Recycle</h3>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus suscipit nisl, accumsan laoreet massa eleifend sit amet. 
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus suscipit nisl, accumsan laoreet massa eleifend sit amet.
 					</p>
 				</div>
 
@@ -294,20 +281,14 @@
 					</ul>
 				</div>
 			</div>
-				
+
 
 		</div>
 	</section>
 	<!--contact-->
-
-
-
-
-
-
-	<footer>
+<footer >
 		<div class="container">
-			
+
 			<div class="copyright">Copyright &copy; 2024 | All Rights Reserved</div>
 
 			<div class="social">
@@ -317,7 +298,7 @@
 			</div>
 
 		</div>
-	</footer>
+</footer>
 	<!--footer-->
-</body>
-</html>
+
+{% endblock %}
