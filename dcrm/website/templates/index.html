@@ -10,8 +10,8 @@
 			</a>
 
 			<div class="menublock">
-				<a href="javascript:void();" class="showmenu"><i class="fa-solid fa-bars"></i></a>
-				<a href="javascript:void();" class="hidemenu"><i class="fa-solid fa-xmark"></i></a>
+				<a href="javascript:void(0);" class="showmenu"><i class="fa-solid fa-bars"></i></a>
+				<a href="javascript:void(0);" class="hidemenu"><i class="fa-solid fa-xmark"></i></a>
 				<nav id="headnav">
 					<ul>
 						<li class="active"><a href="#home">Home</a></li>
@@ -24,17 +24,10 @@
 						{% endif %}
 						{% if not user.is_authenticated %}
 						<li class="loginblock"><a  href="{% url 'login' %}">Login</a></li>
-						<li class="loginblock"><a  href="">Signup</a></li>
+						<li class="loginblock"><a  href="{% url 'signup' %}">Signup</a></li>
 						{% endif %}
 
 					</ul>
-
-
-
-
-
-
-
 
 				</nav>
 			</div>
