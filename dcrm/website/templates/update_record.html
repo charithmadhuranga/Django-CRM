@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+<h1 class="text-center mt-5">Update Record</h1>
+<div class="card mx-auto mt-5 mb-5" style="width: 50%; align-items: center; padding: 20px">
+ <form action="{% url 'update_record' customer_record.id %}" method="POST">
+            {% csrf_token %}
+            <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+                {% if messages %}
+                    {% for message in messages %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                    {% endfor %}
+                {% endif %}
+          </div>
+            <div class="row gy-3 gy-md-4 overflow-hidden">
+              <div class="col-12">
+                <label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="firstName" id="firstName" value="{{customer_record.first_name}}" required>
+              </div>
+              <div class="col-12">
+                <label for="lastName" class="form-label">Last Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="lastName" id="lastName" value="{{customer_record.last_name}}" required>
+              </div>
+              <div class="col-12">
+                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" name="email" id="email" value="{{customer_record.email}}" required>
+              </div>
+                <div class="col-12">
+                <label for="phone" class="form-label">Phone <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="phone" id="phone" value="{{customer_record.phone}}" required>
+              </div>
+             <div class="col-12">
+                <label for="address" class="form-label">Address <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="address" id="address" value="{{customer_record.address}}" required>
+              </div>
+             <div class="col-12">
+                <label for="city" class="form-label">City <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="city" id="city" value="{{customer_record.city}}" required>
+              </div>
+              <div class="col-12">
+                <label for="state" class="form-label">State <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="state" id="state" value="{{customer_record.state}}" required>
+              </div>
+             <div class="col-12">
+                <label for="zipcode" class="form-label">Zipcode <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="zipcode" id="zipcode" value="{{customer_record.zipcode}}" required>
+              </div>
+              <div class="col-12">
+                <div class="d-grid">
+                    <button class="btn bsb-btn-xl btn-primary mx-2 mt-2" type="submit" >Update</button>
+                </div>
+              </div>
+            </div>
+          </form>
+
+
+  </div>
+{% endblock content %}

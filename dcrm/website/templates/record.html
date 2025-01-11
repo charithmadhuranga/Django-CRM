@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+<h1 class="text-center mt-5">Customer Record</h1>
+<div class="card mx-auto mt-5" style="width: 25rem; align-items: center;">
+  <div class="card-body">
+    <h2 class="card-title">{{ customer_record.first_name}} {{ customer_record.last_name}}</h2>
+      <br>
+ <p class="card-text"> <b>Email: </b>{{ customer_record.email}}</p>
+  <p class="card-text"><b>Phone: </b>{{ customer_record.phone}}</p>
+  <p class="card-text"><b>Address: </b>{{ customer_record.address}}</p>
+  <p class="card-text"><b>City: </b>{{ customer_record.city}}</p>
+ <p class="card-text"><b>State: </b>{{ customer_record.state}}</p>
+  <p class="card-text"><b>Zipcode: </b>{{ customer_record.zipcode}}</p>
+  <p class="card-text"><b>Created At: </b>{{ customer_record.created_at}}</p>
+    <a href="{% url 'crm' %}" class="btn btn-primary mx-2 mt-2">Back</a>
+    <a href="{% url 'delete' customer_record.id %}" class="btn btn-danger mx-2 mt-2">Delete</a>
+      <a href="{% url 'update_record' customer_record.id %}" class="btn btn-danger mx-2 mt-2">Update</a>
+  </div>
+</div>
+{% endblock content %}

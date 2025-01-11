@@ -13,8 +13,16 @@
       </ul>
       <div class=" container d-flex flex-row align-items-center justify-content-center justify-content-lg-end" >
         {% if user.is_authenticated %}
-        <a  class=" btn btn-outline-success " style="float: right;" aria-current="page" href="{% url 'logout' %}">Logout</a>
+          {% if  request.resolver_match.url_name == 'add_record' %}
+            <a href="{% url 'crm' %}" class="btn btn-secondary" style="float: right; margin-right: 20px;" role="button" aria-current="page">Back</a>
+            <a  class=" btn btn-outline-success " style="float: right;" aria-current="page" href="{% url 'logout' %}">Logout</a>
+
+          {% endif %}
+         {% if  request.resolver_match.url_name == 'crm' %}
+            <a href="{% url 'add_record' %}" class="btn btn-secondary" style="float: right; margin-right: 20px;" role="button" aria-current="page">Add</a>
+            <a  class=" btn btn-outline-success " style="float: right;" aria-current="page" href="{% url 'logout' %}">Logout</a>
         {% endif %}
+         {% endif %}
       </div>
 
 
